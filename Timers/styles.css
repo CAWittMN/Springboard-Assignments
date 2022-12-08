@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, Helvetica, sans-serif
+}
+#countdown-container {
+    display: flex;
+    background-color: lightblue;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+.count-item {
+    margin: 30px;
+}
+
+.counter {
+    display: inline-block;
+    text-align: center;
+    width: 4em;
+    background-color: rgb(184, 251, 251);
+    height: 25px;
+    border-radius: 5px;
+}
+
+input {
+    border: none;
+    width: 4em;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.no-click {
+    pointer-events: none;
+    background-color: lightgrey;
+}

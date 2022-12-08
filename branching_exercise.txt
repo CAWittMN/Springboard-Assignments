@@ -1,0 +1,6 @@
+1. 'git branch' or 'git checkout -b'
+2. Fast-forward merges are used when no commits have been made to the main branch since the feature branch was created and merged. Recursive is the default method for merging two branches.
+3. git checkout
+4. 'git branch -d' or 'git branch -D'
+5. When commits have happened on multiple branches in the merge that git cannot decide what was meant to be kept like multiple files with the same name that were created and committed on multiple branches before the merge.
+
