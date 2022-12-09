@@ -13,7 +13,7 @@ function getCountDownSeconds() {
 
 function countDown(seconds) {
   counter.innerText = `${seconds}`;
-  let timer = setInterval(function () {
+  const timer = setInterval(function () {
     if (seconds > 0) {
       seconds--;
       counter.innerText = `${seconds}`;
@@ -26,13 +26,12 @@ function countDown(seconds) {
 }
 
 function randomGame() {
-  let randomNumber
   let tries = 0;
-  let timer = setInterval(function () {
-    randomNumber = Math.random();
+  const timer = setInterval(function () {
+    const randomNumber = Math.random();
     tries++;
-    console.log(`Random Number=${rnumber}    Attempt Number ${tries}`);
-    if (rnumber > 0.75) {
+    console.log(`Random Number=${randomNumber}    Attempt Number ${tries}`);
+    if (randomNumber > 0.75) {
       clearInterval(timer);
       console.log(
         `Succesful random number larger than .75 on attempt number ${tries}!`
