@@ -1,8 +1,8 @@
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("calc-form");
   if (form) {
     setupIntialValues();
-    form.addEventListener("submit", function(e) {
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
       update();
     });
@@ -11,10 +11,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
 function getCurrentUIValues() {
   return {
-    amount: +(document.getElementById("loan-amount").value),
-    years: +(document.getElementById("loan-years").value),
-    rate: +(document.getElementById("loan-rate").value),
-  }
+    amount: +document.getElementById("loan-amount").value,
+    years: +document.getElementById("loan-years").value,
+    rate: +document.getElementById("loan-rate").value,
+  };
 }
 
 // Get the inputs from the DOM.
@@ -22,13 +22,13 @@ function getCurrentUIValues() {
 // Call a function to calculate the current monthly payment
 function setupIntialValues() {
   const loanValues = { amount: 150000, years: 30, rate: 3.5 };
-  const amountText = document.getElementById('loan-amount');
+  const amountText = document.getElementById("loan-amount");
   amountText.value = loanValues.amount;
-  const yearsText = document.getElementById('loan-years');
+  const yearsText = document.getElementById("loan-years");
   yearsText.value = loanValues.years;
-  const rateText = document.getElementById('loan-rate');
+  const rateText = document.getElementById("loan-rate");
   rateText.value = loanValues.rate;
-  update()
+  update();
 }
 
 // Get the current values from the UI
@@ -42,19 +42,17 @@ function update() {
 // calculate the monthly payment.  The output should be a string
 // that always has 2 decimal places.
 function calculateMonthlyPayment(values) {
-  const monthlyRate = (values.rate / 100) / 12;
+  const monthlyRate = values.rate / 100 / 12;
   const n = Math.floor(values.years * 12);
   return (
     (monthlyRate * values.amount) /
-    (1 - Math.pow((1 + monthlyRate), -n))
+    (1 - Math.pow(1 + monthlyRate, -n))
   ).toFixed(2);
 }
 
 // Given a string representing the monthly payment value,
 // update the UI to show the value.
 function updateMonthly(monthly) {
-  const monthlyPaymentText = document.getElementById('monthly-payment');
+  const monthlyPaymentText = document.getElementById("monthly-payment");
   monthlyPaymentText.innerText = `$${monthly}`;
-
-
 }
