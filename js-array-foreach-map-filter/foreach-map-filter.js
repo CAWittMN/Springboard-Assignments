@@ -6,9 +6,9 @@ Examples:
     doubleValues([5,1,2,3,10]) // [10,2,4,6,20]
 
 */
-function doubleValues(arr) {
+function doubleValues(numbers) {
   let newArr = [];
-  for (number of arr) {
+  for (const number of numbers) {
     newArr.push(number * 2);
   }
   return newArr;
@@ -24,7 +24,7 @@ Examples:
 */
 function onlyEvenValues(arr) {
   let newArr = [];
-  for (number of arr) {
+  for (const number of arr) {
     if (number % 2 === 0) {
       newArr.push(number);
     }
@@ -42,7 +42,7 @@ Examples:
 */
 function showFirstAndLast(arr) {
   let newArr = [];
-  for (str of arr) {
+  for (const str of arr) {
     newArr.push(`${str[0]}${str[str.length - 1]}`);
   }
   return newArr;
@@ -59,7 +59,7 @@ Examples:
 */
 function addKeyAndValue(arr, key, value) {
   let newArr = [];
-  for (obj of arr) {
+  for (const obj of arr) {
     obj[key] = value;
     newArr.push(obj);
   }
@@ -80,8 +80,8 @@ function vowelCount(str) {
   let vowels = "aeiou";
   let obj = {};
   let strArr = Array.from(str.toLowerCase());
-  for (character of strArr) {
-    if (vowels.indexOf(character) !== -1) {
+  for (const character of strArr) {
+    if (vowels.includes(character)) {
       if (obj[character]) {
         obj[character]++;
       } else {
@@ -101,7 +101,7 @@ Examples:
 */
 
 function doubleValuesWithMap(arr) {
-  return arr.map(function (number) {
+  return arr.map((number) => {
     return number * 2;
   });
 }
@@ -115,7 +115,7 @@ Examples:
 */
 
 function valTimesIndex(arr) {
-  return arr.map(function (number, i) {
+  return arr.map((number, i) => {
     return number * i;
   });
 }
@@ -200,8 +200,6 @@ function removeVowels(str) {
     return Array.from(str.toLowerCase()).filter(function(letter){
         return vowels.indexOf(letter) === -1;
     }).join('');
-
-
 }
 
 /*
