@@ -1,0 +1,10 @@
+var PI = 3.14;
+PI = 42; // stop me from doing this!
+
+Const PI = 3.14;
+
+
+1. Var can be redeclared and is added to the window object. Let can only be reassigned and is block scoped.
+2. Var can change it's value and be redeclared but const cannot and is blocked scoped.
+3. Let can change it's value but const cannot.
+4. Var declarations are "hoisted" to run before the rest of the script.
