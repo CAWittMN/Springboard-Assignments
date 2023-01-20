@@ -1,0 +1,17 @@
+1. Hyper Text Transfer Protocol. Dictates how data goes to or comes from a server.\
+
+2. Uniform Resource Locator. An address.
+
+3. Domain Name System. Takes a URL and converts to IP address.
+
+4. Passing in key value pairs into a URL.
+
+5. Get (retrieve data from a server) Post (send data to the server)
+
+6. A request from a client to a server.
+
+7. A response from a server following a request.
+
+8. Provides additional information about the request/response.
+
+9. URL becomes IP address using DNS, browser makes a request, server sends a response, the browser makes a DOM from HTML and sends requests for other resources needed.
