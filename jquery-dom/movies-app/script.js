@@ -1,24 +1,35 @@
-const removeMovie = (target) => {
-  console.log(target);
-};
-
 $("#submit").on("click", (event) => {
   event.preventDefault();
-  const movieTitle = $("#title").val();
-  const rating = $("#rating").val();
-  new Movie();
+  movieList.checkForDuplicate($("#movie-title").val())
+    ? console.log("duplicate")
+    : new Movie();
 });
 
-$("#movie-list").on("click", "button", (evt) => {
-  removeMovie(evt.target);
-});
+class List {
+  constructor() {
+    this.movies = [];
+  }
+  checkForDuplicate(title) {
+    this.movies.some(title);
+  }
+}
 
 class Movie {
   constructor() {
+    this.order = this.getOrder();
     this.title = this.getTitle();
     this.rating = this.getRating();
-    this.placeInList();
-    this.placeDeleteButton();
+    this.placeInHTMLList();
+    this.addToList();
+  }
+  getOrder() {
+    if (movieList.movies.length === undefined) {
+      return 1;
+    } else {
+      return movieList.movies.length + 1;
+    }
+
+    //movieList.movies.length === undefined ? 1 : movieList.movies.length + 1;
   }
   getTitle() {
     console.log("getting title");
@@ -28,10 +39,18 @@ class Movie {
     console.log("getting rating");
     return $("#rating").val();
   }
-  deleteMovie(event) {}
-  placeInList() {
+  placeInHTMLList() {
     const movieTitle = $("<td>").text(`${this.title}`);
     const movieRating = $("<td>").text(`${this.rating}`);
-    const 
+    const delteButton = $("<button>").addClass("delete-button");
+    const row = $("<tr>")
+      .append(movieTitle)
+      .append(movieRating)
+      .append(delteButton);
+    $("#movie-list").append(row);
+  }
+  addToList() {
+    movieList.movies.push(this);
   }
 }
+const movieList = new List();
