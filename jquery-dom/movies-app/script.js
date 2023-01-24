@@ -1,6 +1,6 @@
 $("#submit").on("click", (event) => {
   event.preventDefault();
-  movieList.checkForDuplicate($("#movie-title").val())
+  movieList.checkForDuplicate($("#title").val())
     ? console.log("duplicate")
     : new Movie();
 });
@@ -9,8 +9,11 @@ class List {
   constructor() {
     this.movies = [];
   }
-  checkForDuplicate(title) {
-    this.movies.some(title);
+  checkForDuplicate(movieTitle) {
+    if (this.movies.some((e) => e.title === movieTitle)) {
+      return true;
+    }
+    return false;
   }
 }
 
