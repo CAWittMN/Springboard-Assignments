@@ -2,7 +2,7 @@ $("#submit").on("click", (event) => {
   event.preventDefault();
   movieList.checkForDuplicate($("#title").val())
     ? console.log("duplicate")
-    : new Movie();
+    : new Movie($("#title").val(), $("#rating").val());
 });
 
 class List {
@@ -15,13 +15,17 @@ class List {
     }
     return false;
   }
+  sortTitleAlpha() {}
+  sortByAdded() {}
+  sortRating() {}
+  renderList() {}
 }
 
 class Movie {
-  constructor() {
-    this.order = this.getOrder();
-    this.title = this.getTitle();
-    this.rating = this.getRating();
+  constructor(title, rating) {
+    this.addedOrder = this.getOrder();
+    this.title = title;
+    this.rating = rating;
     this.placeInHTMLList();
     this.addToList();
   }
@@ -31,8 +35,6 @@ class Movie {
     } else {
       return movieList.movies.length + 1;
     }
-
-    //movieList.movies.length === undefined ? 1 : movieList.movies.length + 1;
   }
   getTitle() {
     console.log("getting title");
