@@ -4,10 +4,12 @@ class List {
     $("#sort-by").on("change", (e) => {
       this.renderBySort();
     });
+
     $("#movie-form").on("submit", (event) => {
       event.preventDefault();
       this.addToList();
     });
+
     $("table").on("click", (e) => {
       if (e.target.tagName === "BUTTON") {
         this.removeHTMLMovie(e.target);
@@ -15,22 +17,18 @@ class List {
       }
     });
   }
-  removeHTMLMovie(target) {
-    $(target).closest("tr").remove();
-  }
-  removeMovieFromList(selectedMovie) {
-    const removingTitle = $(selectedMovie).closest("tr").find(".title").text();
-    const newList = $.grep(this.movies, function (movie) {
-      return movie.title !== removingTitle;
-    });
-    this.movies = newList;
-  }
+
   checkForDuplicate(movieTitle) {
     if (this.movies.some((e) => e.title === movieTitle)) {
       return true;
     }
     return false;
   }
+
+  announceDuplicate() {
+    alert("That movie is already in the list!");
+  }
+
   addToList() {
     if (this.checkForDuplicate($("#title").val())) {
       this.announceDuplicate();
@@ -39,6 +37,7 @@ class List {
       this.renderBySort();
     }
   }
+
   renderBySort() {
     if ($("#sort-by").val() == "Added") {
       this.sortByAdded();
@@ -51,9 +50,7 @@ class List {
       this.renderList();
     }
   }
-  announceDuplicate() {
-    alert("That movie is already in the list!");
-  }
+
   sortByTitle() {
     const compare = (a, b) => {
       if (a.title < b.title) {
@@ -66,6 +63,7 @@ class List {
     };
     this.movies.sort(compare);
   }
+
   sortByAdded() {
     const compare = (a, b) => {
       if (a.addedOrder < b.addedOrder) {
@@ -78,6 +76,7 @@ class List {
     };
     this.movies.sort(compare);
   }
+
   sortByRating() {
     const compare = (a, b) => {
       if (a.rating - 1 > b.rating - 1) {
@@ -90,6 +89,7 @@ class List {
     };
     this.movies.sort(compare);
   }
+
   renderList() {
     this.resetInputs();
     this.clearHTMLList();
@@ -105,9 +105,23 @@ class List {
       );
     });
   }
+
+  removeHTMLMovie(target) {
+    $(target).closest("tr").remove();
+  }
+
+  removeMovieFromList(selectedMovie) {
+    const removingTitle = $(selectedMovie).closest("tr").find(".title").text();
+    const newList = $.grep(this.movies, function (movie) {
+      return movie.title !== removingTitle;
+    });
+    this.movies = newList;
+  }
+
   clearHTMLList() {
     $(".movie").remove();
   }
+
   resetInputs() {
     $("#title").val("");
     $("#rating").val("");
@@ -120,6 +134,7 @@ class Movie {
     this.title = $("#title").val();
     this.rating = $("#rating").val();
   }
+
   getOrderNumber() {
     if (movieList.movies.length === undefined) {
       return 1;
@@ -128,4 +143,5 @@ class Movie {
     }
   }
 }
+
 const movieList = new List();
