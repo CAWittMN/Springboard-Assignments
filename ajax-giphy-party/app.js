@@ -1,18 +1,18 @@
 console.log("Let's get this party started!");
 
-const getGif = () => {
-  const keyword = $("input").val();
-  const response = sendRequest(keyword);
-  console.log(response);
-};
-async function sendRequest(keyword) {
-  const response = await axios.get(
+const addToTheParty = (res) => {};
+
+async function getGif(keyword) {
+  let response = await axios.get(
     `http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym`
   );
-  return response;
+  console.log(response);
+  return response.data;
 }
 
 $("#search").on("click", (event) => {
   event.preventDefault();
-  getGif();
+  let keyword = $("input").val();
+  let gif = getGif(keyword);
+  addToTheParty(gif);
 });
