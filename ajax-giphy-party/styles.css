@@ -1,12 +1,58 @@
 #gifs {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
-#gif-box {
-width: 300px;
-height: 300px;
+.gif-box {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  margin-top: 10px;
 }
 img {
-    max-width: 300px;
-    max-height: 300px;
+  max-width: 300px;
+  max-height: 300px;
+}
+body {
+  background-color: black;
+  position: relative;
+  max-width: 3000px;
+  margin: auto;
+}
+form {
+  display: flex;
+  margin-right: 10px;
+}
+#search-bar {
+  display: flex;
+  height: 40px;
+  margin: auto;
+  width: 50%;
+  margin-left: 25%;
+}
+#search {
+  color: white;
+  background-color: rgb(16, 75, 56);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  border: 2px solid rgb(71, 75, 109);
+}
+#clear-all {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: white;
+  background-color: rgb(95, 29, 29);
+  border: 2px solid rgb(71, 75, 109);
+}
+#clear-all:hover,
+#search:hover {
+  cursor: pointer;
+  background-color: rgb(255, 144, 144);
+  transition: all 100ms;
+}
+h1 {
+  margin-left: 25%;
+  color: rgb(227, 233, 78);
 }
