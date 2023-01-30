@@ -1,0 +1,12 @@
+#gifs {
+    display: flex;
+    flex-wrap: wrap;
+}
+#gif-box {
+width: 300px;
+height: 300px;
+}
+img {
+    max-width: 300px;
+    max-height: 300px;
+}

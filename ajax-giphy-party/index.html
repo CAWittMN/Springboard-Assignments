@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Gif Wall</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
     <h1>Gif Wall</h1>
     <div id="search-bar">
-      <form>
+      <form id="gif-search">
         <input
           placeholder="Search a keyword..."
           type="text"
@@ -17,7 +18,7 @@
         />
         <button id="search" type="submit">Find GIF</button>
       </form>
-      <button id="delete-button">Clear All</button>
+      <button id="clear-all">Clear All</button>
     </div>
     <div id="gifs"></div>
 
