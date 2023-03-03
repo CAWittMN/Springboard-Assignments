@@ -14,8 +14,6 @@ def convert_temp(unit_in, unit_out, temp):
       convert_temp("c", "f", 0)  =>  32.0
       convert_temp("f", "c", 212) => 100.0
     """
-
-    # YOUR CODE HERE
     if unit_in == "c" and unit_out == "f":
         return temp * (9 / 5) + 32
     elif unit_in == "f" and unit_out == "c":
