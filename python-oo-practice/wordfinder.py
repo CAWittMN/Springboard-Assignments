@@ -4,13 +4,13 @@ import random
 
 class WordFinder:
     """Machine for getting random words from a file
-    >>> finder = WordFinder("test.txt")
-    5 words read
-
     Attributes:
     ------------
     words: lst of str
         the list of words generated from the provided file
+
+    >>> finder = WordFinder("test.txt")
+    5 words read
 
     >>> finder.random() in ["One", "Two", "Three", "Four", "Five"]
     True
