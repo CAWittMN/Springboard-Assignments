@@ -30,8 +30,11 @@ class SerialGenerator:
 
     def __init__(self, start=0) -> None:
         """Make a new generator instance starting at provided start"""
-        self.start_point = start
-        self.curr_serial = start
+        if isinstance(start, int):
+            self.start_point = start
+            self.curr_serial = start
+        else:
+            raise ValueError("Value needs to be an integer")
 
     def __repr__(self) -> str:
         """print representation"""
